@@ -62,7 +62,6 @@ Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus e
 def print_hi(name):
   print("Hi" + name)
 print_hi('Tom')
-#=> prints 'Hi, Tom'.
 {%- endhighlight -%}
 
 
