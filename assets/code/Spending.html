@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Code</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Spending_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Spending_files/libs/quarto-html/quarto.js"></script>
+<script src="Spending_files/libs/quarto-html/popper.min.js"></script>
+<script src="Spending_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Spending_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Spending_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Spending_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Spending_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Spending_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Spending_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Spending_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="Spending_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="Spending_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="Spending_files/libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="Spending_files/libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="Spending_files/libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="Spending_files/libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="Spending_files/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="Spending_files/libs/leaflet-binding-2.2.2/leaflet.js"></script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Code</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="import-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="import-libraries">Import Libraries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># used for plots</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet) <span class="co"># used to make interactive maps</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># used for grouping the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="read-in-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="read-in-dataset">Read in Dataset</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'spending.csv'</span>, <span class="at">header =</span> T) </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Date  Category    Description    Amount      Method Necessity  Store.Name
+1 7/1/2024 Allowance craigs list ad     $5.00 Credit Card      Want Criags list
+2 7/1/2024 Groceries           food    $19.69 Credit Card      Need     Walmart
+3 7/1/2024       Car           clip    $35.79 Credit Card      Need    Autozone
+4 7/1/2024    Income         refund    $14.00 Credit Card      Need     Walmart
+5 7/1/2024     Other         payoff $2,465.21  Debit Card      Need       Apple
+6 7/3/2024      Rent           rent $1,045.25  Debit Card      Need         Apt
+  Latitude Longitude  Emotion Money.Left Income.Expense
+1       NA        NA    Happy $19,995.00        Expense
+2 32.23359 -110.8394  Neutral $19,975.31        Expense
+3 32.23731 -110.8729 Stressed $19,939.52        Expense
+4 32.19314 -110.8424    Happy $19,953.52         Income
+5       NA        NA    Happy $17,488.31        Expense
+6       NA        NA  Neutral $16,443.06        Expense</code></pre>
+</div>
+</div>
+</section>
+<section id="change-variable-types" class="level2">
+<h2 class="anchored" data-anchor-id="change-variable-types">Change Variable Types</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">trimws</span>(df<span class="sc">$</span>Date)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>Date, <span class="at">format =</span> <span class="st">"%m/%d/%Y"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Category <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>Category)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Amount <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, df<span class="sc">$</span>Amount)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Amount <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>Amount)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Method <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>Method)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Necessity <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>Necessity)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Emotion <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>Emotion)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Money.Left <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, df<span class="sc">$</span>Money.Left)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Money.Left <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>Money.Left)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Income.Expense <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>Income.Expense)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualize-your-spending-data" class="level2">
+<h2 class="anchored" data-anchor-id="visualize-your-spending-data">Visualize Your Spending Data</h2>
+<section id="amount-spent-per-category" class="level3">
+<h3 class="anchored" data-anchor-id="amount-spent-per-category">Amount Spent Per Category</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>spentdf <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, <span class="sc">!</span>(Category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Income"</span>, <span class="st">"Other"</span>))) </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(spentdf, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> Amount, <span class="at">fill =</span> Category))<span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Amount Spent Per Category"</span>, <span class="at">x =</span> <span class="st">"Category"</span>, <span class="at">y =</span> <span class="st">"Amount ($)"</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Spending_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="pie-chart-of-emotion-felt-during-transactions" class="level3">
+<h3 class="anchored" data-anchor-id="pie-chart-of-emotion-felt-during-transactions">Pie Chart of Emotion Felt During Transactions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>Emotion)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(counts,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Count of Emotions Felt During Transactions"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(counts)),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">names</span>(counts), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, counts))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Spending_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="line-chart-of-money-in-account-over-time" class="level3">
+<h3 class="anchored" data-anchor-id="line-chart-of-money-in-account-over-time">Line Chart of Money In Account Over Time</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df<span class="sc">$</span>Date, df<span class="sc">$</span>Money.Left, <span class="at">type =</span> <span class="st">"o"</span>, <span class="at">col =</span> <span class="st">"cornflowerblue"</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">"Date"</span>, <span class="at">ylab =</span> <span class="st">"Money Left ($)"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">"Money In Bank Account Over Time"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Spending_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="map-of-location-of-transactions" class="level3">
+<h3 class="anchored" data-anchor-id="map-of-location-of-transactions">Map of Location of Transactions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a new dataframe with missing values for location removed</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mapdf <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>map_summary <span class="ot">&lt;-</span> mapdf <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Latitude, Longitude, <span class="st">`</span><span class="at">Store.Name</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="co"># each unique combination of these three variables are treated as a separate group</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>) <span class="co"># counts the number of transactions for each group n() and creates a new data frame called map_summary</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(<span class="at">data =</span> map_summary) <span class="sc">%&gt;%</span> <span class="co"># creates map using map_summary data</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> <span class="co"># adds default map tiles from OpenStreetMap to leaflet map</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>( <span class="co"># adds marker for each location by latitude and longitude</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span>Longitude, <span class="sc">~</span>Latitude,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(<span class="st">"Location:"</span>, <span class="st">`</span><span class="at">Store.Name</span><span class="st">`</span>, <span class="st">"&lt;br&gt;"</span>, <span class="co"># specify what will be displayed in the popup</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Count of Transactions:"</span>, Count)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setView</span>(<span class="at">lng =</span> <span class="fu">mean</span>(map_summary<span class="sc">$</span>Longitude, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># sets the view to the average latitude and longitude values from the data</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">lat =</span> <span class="fu">mean</span>(map_summary<span class="sc">$</span>Latitude, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">zoom =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-3cbe77e7aeb9c305481e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3cbe77e7aeb9c305481e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[32.11027,32.160832,32.180063,32.192376,32.192397,32.192423,32.193144,32.193842,32.20016,32.20539,32.2061,32.207462,32.207497,32.219091,32.219205,32.219472,32.220971,32.221474,32.221984,32.222022,32.223011,32.223592,32.225696,32.227884,32.233589,32.237307,32.24819,32.28817,32.288723,32.327698,32.447456,33.390079,33.423368],[-110.951737,-110.990068,-110.94688,-110.788007,-110.838415,-110.854388,-110.84244,-110.840311,-110.908981,-110.904711,-110.978485,-110.78672,-110.892264,-110.857387,-110.86535,-110.858415,-110.893244,-110.978278,-110.914168,-110.872239,-110.915085,-110.919371,-110.97463,-110.965903,-110.839435,-110.872894,-110.850511,-110.945318,-110.9745,-111.053335,-110.781672,-111.857699,-111.719694],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Location: Raytheon <br> Count of Transactions: 23","Location: Target <br> Count of Transactions: 2","Location: Costco <br> Count of Transactions: 1","Location: Ace <br> Count of Transactions: 1","Location: Eegees <br> Count of Transactions: 1","Location: Mechanic <br> Count of Transactions: 1","Location: Walmart <br> Count of Transactions: 19","Location: Mister Clean <br> Count of Transactions: 1","Location: Eegees <br> Count of Transactions: 1","Location: Dollar Tree <br> Count of Transactions: 2","Location: Chevron <br> Count of Transactions: 2","Location: Target <br> Count of Transactions: 1","Location: Chevron <br> Count of Transactions: 1","Location: Cinnaholic <br> Count of Transactions: 1","Location: Cinemark <br> Count of Transactions: 4","Location: Texas Roadhouse <br> Count of Transactions: 1","Location: Ace <br> Count of Transactions: 3","Location: Festival <br> Count of Transactions: 2","Location: In n Out <br> Count of Transactions: 1","Location: Krispy Kreme <br> Count of Transactions: 1","Location: Target <br> Count of Transactions: 1","Location: Walmart <br> Count of Transactions: 1","Location: El Charro <br> Count of Transactions: 1","Location: DQ <br> Count of Transactions: 1","Location: Walmart <br> Count of Transactions: 2","Location: Autozone <br> Count of Transactions: 1","Location: Mcdonalds <br> Count of Transactions: 1","Location: Barber <br> Count of Transactions: 1","Location: Mall <br> Count of Transactions: 1","Location: Topgolf <br> Count of Transactions: 1","Location: Mt Lemmon <br> Count of Transactions: 3","Location: In n Out <br> Count of Transactions: 2","Location: Circle K <br> Count of Transactions: 4"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[32.11027,33.423368],"lng":[-111.857699,-110.781672]},"setView":[[32.29608903030303,-110.9525010606061],12,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+<section id="find-monthly-average-for-each-category" class="level1">
+<h1>Find Monthly Average for Each Category</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sum_total <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(Amount <span class="sc">~</span> Category, <span class="at">data =</span> df, <span class="at">FUN =</span> base<span class="sc">::</span>sum)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sum_total<span class="sc">$</span>AverageSpent <span class="ot">&lt;-</span> sum_total<span class="sc">$</span>Amount <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sum_total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Category  Amount AverageSpent
+1      Allowance  721.80      360.900
+2            Car  722.35      361.175
+3          Dates  375.05      187.525
+4      Donations  524.35      262.175
+5          Gifts   40.80       20.400
+6      Groceries 1139.24      569.620
+7         Income 9277.45     4638.725
+8     Insurances   19.92        9.960
+9       Internet  140.00       70.000
+10         Other 4690.38     2345.190
+11         Phone   44.00       22.000
+12          Rent 2090.50     1045.250
+13       Savings  500.00      250.000
+14 Subscriptions   62.06       31.030
+15        Travel  413.10      206.550
+16     Utilities  370.00      185.000</code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
