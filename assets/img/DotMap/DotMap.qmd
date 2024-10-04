@@ -1,0 +1,44 @@
+---
+title: "DotMap"
+format: html
+editor: visual
+---
+
+```{r, message=F, echo=FALSE}
+library(ggplot2) # used for plots
+library(leaflet) # used to make interactive maps
+library(dplyr) # used for grouping the data
+
+df <- read.csv('spending.csv', header = T) 
+
+df$Date <- trimws(df$Date)
+df$Date <- as.Date(df$Date, format = "%m/%d/%Y")
+df$Category <- as.factor(df$Category)
+df$Amount <- gsub("[^0-9.]", "", df$Amount)
+df$Amount <- as.numeric(df$Amount)
+df$Method <- as.factor(df$Method)
+df$Necessity <- as.factor(df$Necessity)
+df$Emotion <- as.factor(df$Emotion)
+df$Money.Left <- gsub("[^0-9.]", "", df$Money.Left)
+df$Money.Left <- as.numeric(df$Money.Left)
+df$Income.Expense <- as.factor(df$Income.Expense)
+
+mapdf <- na.omit(df)
+```
+
+```{r, message=F, echo=F}
+map_summary <- mapdf %>%
+  group_by(Latitude, Longitude, `Store.Name`) %>% # each unique combination of these three variables are treated as a separate group
+  summarise(Count = n(), .groups = 'drop') # counts the number of transactions for each group n() and creates a new data frame called map_summary
+ 
+leaflet(data = map_summary) %>% # creates map using map_summary data
+  addTiles() %>% # adds default map tiles from OpenStreetMap to leaflet map
+  addMarkers( # adds marker for each location by latitude and longitude
+    ~Longitude, ~Latitude,
+    popup = ~paste("Location:", `Store.Name`, "<br>", # specify what will be displayed in the popup
+                   "Count of Transactions:", Count)
+  ) %>%
+  setView(lng = mean(map_summary$Longitude, na.rm = TRUE), # sets the view to the average latitude and longitude values from the data
+          lat = mean(map_summary$Latitude, na.rm = TRUE), 
+          zoom = 12)
+```
