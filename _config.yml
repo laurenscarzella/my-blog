@@ -1,8 +1,8 @@
 ## You should change each of the following fields
 ## to customize your blog
 
-title: "Stat 386 Blog"
-description: "This description of the blog will appear on the 'About' page." 
+title: "Data Science Blog"
+description: "Welcome to my blog! This is a space dedicated to exploring the realm of data science. Here, I share insights and tutorials on various topics including data analysis,visualization, and statistical modeling. My goal with this blog is to demonstrate how data can be used to drive informed decision-making." 
 author: Lauren Scarzella
 author_description: "I am a Statistics major at Brigham Young University with an emphasis in Data Science, set to graduate by April 2025. My skills include data cleaning, data visualization, statistical modeling and proficiency in Python and R. I am passionate about transforming data into meaningful and actionable results for real-world impact. I am excited for any opportunities to make use of my skills in data analysis to support more informed decision making." 
 
@@ -16,7 +16,7 @@ social:
     twitter: 
     facebook: 
     email: scarzellalauren@gmail.com
-    linkedin: Lauren Scarzella
+    linkedin: lauren-scarzella
     youtube: 
     tumblr: 
     website: 
