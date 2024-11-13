@@ -8,11 +8,12 @@ image: "/assets/img/IMG_2060.JPG"
 ### Introduction
 
 ### Research Question
+Which genres are most popular on average?
 
-### Steps
+### How to Gather Data using an API
 
 ### EDA
 
-### Links for resources
-
 ### Link to code in separate GitHub Repo
+
+### Conclusion
