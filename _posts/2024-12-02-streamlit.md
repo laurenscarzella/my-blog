@@ -39,7 +39,7 @@ On average, which genres are most popular?
 As you can see, the top five movie genres by average popularity score are Science Fiction, Animation, Action, Horror, and Fantasy.  
 
 ### Streamlit App
-**Purpose:** What if you want to interact with this dataset yourself? Well, you can! Creating a streamlit app enables users to interact with data and possibly discover insights beyond those discussed in this blog post.
+**Purpose:** What if you want to interact with this dataset yourself? Well, you can! Creating a streamlit app enables users to interact with data and possibly uncover insights beyond those discussed in this blog post.
 
 **Usage:** Explain what users can do with this app
 
