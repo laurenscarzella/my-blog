@@ -28,11 +28,11 @@ On average, which genres are most popular?
 ### Key Insights
 Code: All of my code for this section is in a file named "EDA.ipynb" which can be found [here.](https://github.com/laurenscarzella/my-api/blob/main/EDA.ipynb)
 
-1. Summary Statistics: This gives us a breif overview of the movie dataset.
+**1. Summary Statistics:** This gives us a breif overview of the movie dataset.
 
 ![Figure]({{site.url}}/{{site.baseurl}}/assets/img/summary_stats.png)
 
-2. Bar Chart of Top Movie Genres: This helps us answer our motivating question. We can better understand the relationship between genres and average popularity, and see how much average popularity varies across genres. This plot is interactive so you can see the exact average popularity scores by hovering over a genre.
+**2. Bar Chart of Top Movie Genres:** This helps us answer our motivating question. We can better understand the relationship between genres and average popularity, and see how much average popularity varies across genres. This plot is interactive so you can see the exact average popularity scores by hovering over a genre.
 
 <iframe src="{{site.url}}/{{site.baseurl}}/assets/img/interactive_plot1.html" width="100%" height="600px" frameborder="0"></iframe>
 
