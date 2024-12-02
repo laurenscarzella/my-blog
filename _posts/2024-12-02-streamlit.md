@@ -5,9 +5,9 @@ description: "Somthing here."
 image: "/assets/img/IMG_2060.JPG"
 --- 
 
-# Introduction
+### Introduction
 
-# Movie Dataset
+### Movie Dataset
 The dataset that this streamlit app uses comes from the [TMBD API](https://developer.themoviedb.org/docs/getting-started). I also go over how to gather data using this API in another blog post which can be found [here.](https://laurenscarzella.github.io/my-blog/blog/api/) The cleaned version of this movie dataset can be found in my [GitHub repository](https://github.com/laurenscarzella/my-api) named "cleaned_movies.csv". The final dataset contains information about movies such as:
 
 | Variable          | Info                                   | Type     |
@@ -22,10 +22,10 @@ The dataset that this streamlit app uses comes from the [TMBD API](https://devel
 | vote_average      | average rating for movie               | float    |
 | primary_genre     | primary genre the movie is from        | string   |
 
-# Motivating Question
+### Motivating Question
 On average, which genres are most popular?
 
-# Key Insights
+### Key Insights
 Code: All of my code for this section is in a file named "EDA.ipynb" which can be found [here.](https://github.com/laurenscarzella/my-api/blob/main/EDA.ipynb)
 
 1. Summary Statistics: This gives us a breif overview of the movie dataset.
@@ -38,7 +38,7 @@ Code: All of my code for this section is in a file named "EDA.ipynb" which can b
 
 As you can see, the top five movie genres by average popularity score are Science Fiction, Animation, Action, Horror, and Fantasy.  
 
-# Streamlit App
+### Streamlit App
 
-# Conclusion
+### Conclusion
 
