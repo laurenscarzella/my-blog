@@ -39,6 +39,11 @@ Code: All of my code for this section is in a file named "EDA.ipynb" which can b
 As you can see, the top five movie genres by average popularity score are Science Fiction, Animation, Action, Horror, and Fantasy.  
 
 ### Streamlit App
+What if you want to interact with this dataset yourself? Well, you can! Creating a streamlit app enables users to interact with data and possibly discover insights beyond those discussed in this blog post.
+
+Explain what users can do with this app
+
+Provide examples of how users can explore the data to gain additional insights
 
 ### Conclusion
 
