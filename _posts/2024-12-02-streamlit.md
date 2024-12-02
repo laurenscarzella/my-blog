@@ -26,7 +26,7 @@ The dataset that this streamlit app uses comes from the [TMBD API](https://devel
 On average, which genres are most popular?
 
 ### Key Insights
-Code: All of my code for this section is in a file named "EDA.ipynb" which can be found [here.](https://github.com/laurenscarzella/my-api/blob/main/EDA.ipynb)
+**Code:** All of my code for this section is in a file named "EDA.ipynb" which can be found [here.](https://github.com/laurenscarzella/my-api/blob/main/EDA.ipynb)
 
 **1. Summary Statistics:** This gives us a breif overview of the movie dataset.
 
