@@ -53,25 +53,28 @@ As you can see, the top five movie genres by average popularity score are Scienc
 
 ### Unique Interactive Elements Included
 
-**1. Input Widgets:** 
+### Input Widgets
 
-**- Select Box:** Users can select specific genres, allowing them to filter the data to focus on their genre of choice. This widget allows for personalization of the data exploration experience.
+**Select Box:** Users can select specific genres, allowing them to filter the data to focus on their genre of choice. This widget allows for personalization of the data exploration experience.
 
-**- Slider:** The slider enables users to select a specific year or range of years for filtering movie data. This makes it easier to explore trends over a specified year range.
+**Slider:** The slider enables users to select a specific year or range of years for filtering movie data. This makes it easier to explore trends over a specified year range.
 
-**- Radio:** This is used to select between 10, 20, 30, 40, or 50 top movies based on thier popularity scores.
+**Radio:** This is used to select between 10, 20, 30, 40, or 50 top movies based on thier popularity scores.
 
-**2. Expanders:**
+### Expanders
 
-**- Data Table Expander:** For users that want to see the data behind the charts, the app includes an expandable section where they can view the filterred datasets. This allows for transparency in the data that is displayed and for deeper inspection.
+**Data Table Expander:** For users that want to see the data behind the charts, the app includes an expandable section where they can view the filterred datasets. This allows for transparency in the data that is displayed and for deeper inspection.
 
-**3. Tabs:**
+### Tabs
 
-**- Multiple Tabs:** The app is organized into different sections, allowing the user to switch between viewing top movies, trend analysis, and movie counts by genre. This helps users focus on one aspect of the data at a time and avoid feeling overwhelmed.
+**Multiple Tabs:** The app is organized into different sections, allowing the user to switch between viewing top movies, trend analysis, and movie counts by genre. This helps users focus on one aspect of the data at a time and avoid feeling overwhelmed.
 
-**4. Interactive Charts:** The app uses Plotly to create interactive bar charts, line charts, and tables. These visualizations are clickable which helps the user dive deeper into specific data points or elements of a visualization.
+### Interactive Charts
 
-**Further Research:** Provide examples of how users can explore the data to gain additional insights
+The app uses Plotly to create interactive bar charts, line charts, and tables. These visualizations are clickable which helps the user dive deeper into specific data points or elements of a visualization.
+
+### Further Research
+Provide examples of how users can explore the data to gain additional insights
 
 ### Conclusion
 
