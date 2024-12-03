@@ -39,9 +39,9 @@ On average, which genres are most popular?
 As you can see, the top five movie genres by average popularity score are Science Fiction, Animation, Action, Horror, and Fantasy.  
 
 ### Streamlit App
-**Purpose:** What if you want to interact with this dataset yourself? Well, you can! Creating a streamlit app enables users to interact with data and possibly uncover insights beyond those discussed in this blog post.
+**Purpose:** What if you want to interact with this dataset yourself? Well, you can! Creating a streamlit app enables users to interact with data and possibly uncover insights beyond those discussed above.
 
-**Usage:**
+**Usage:** There are three tabs that you can switch between to help users focus on one aspect of the data. These include Top Movies, Trend Analysis, and Movies Released by Genre. The data is also customizable with various filters such as sliders, radios, and select boxes.
 
 **View Top Movies:** Filter movies by release year and genre, and view the top 10, 20, 30, 40, or 50 most popular movies based on their popularity score.
 
@@ -72,9 +72,6 @@ As you can see, the top five movie genres by average popularity score are Scienc
 ### 4. Interactive Charts
 
 The app uses Plotly to create interactive bar charts, line charts, and tables. These visualizations are clickable which helps the user dive deeper into specific data points or elements of a visualization.
-
-### Further Research
-Provide examples of how users can explore the data to gain additional insights
 
 ### Conclusion
 
