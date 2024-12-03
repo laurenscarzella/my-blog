@@ -6,7 +6,7 @@ image: "/assets/img/IMG_2060.JPG"
 --- 
 
 ### Introduction
-Analyzing data can be intimidating, especially if you don't have coding experience. With so much information available, how do you uncover meaningful insights? That's where my [Streamlit app]() comes in. It makes exploring movie data easy and intuitive. This app is designed for users of all skill levels who want to uncover patterns and trends without writing a single line of code. Plus, it goes beyond what's covered in this blog post, allowing you to discover insights of your own!
+Analyzing data can be intimidating, especially if you don't have coding experience. With so much information available, how do you uncover meaningful insights? That's where my [Streamlit app](https://movie-app-kpg7e6zlbgkfo9wwk8w5as.streamlit.app/) comes in. It makes exploring movie data easy and intuitive. This app is designed for users of all skill levels who want to uncover patterns and trends without writing a single line of code. Plus, it goes beyond what's covered in this blog post, allowing you to discover insights of your own!
 
 ### Movie Dataset
 The dataset that this streamlit app uses comes from the [TMBD API](https://developer.themoviedb.org/docs/getting-started). I also go over how to gather data using this API in another blog post which can be found [here.](https://laurenscarzella.github.io/my-blog/blog/api/) The cleaned version of this movie dataset can be found in my [GitHub repository](https://github.com/laurenscarzella/my-api) named "cleaned_movies.csv". The final dataset contains information about movies such as:
@@ -40,7 +40,7 @@ On average, which genres are most popular?
 As you can see, the top five movie genres by average popularity score are Science Fiction, Animation, Action, Horror, and Fantasy.  
 
 ### Streamlit App
-What other valuable insights can we learn from this dataset? Some questions that we can investigate are: What are the most popular movie titles for each genre? What is the average popularity of each genre over time? How many movies come from each genre for a specific year? Answering these questions would be a lot eaiser if you could interact with the data yourself. With the streamlit app that I created, you can easily interact with the data and explore these questions yourself! Click [this link]() to view the app and follow along.
+What other valuable insights can we learn from this dataset? Some questions that we can investigate are: What are the most popular movie titles for each genre? What is the average popularity of each genre over time? How many movies come from each genre for a specific year? Answering these questions would be a lot eaiser if you could interact with the data yourself. With the streamlit app that I created, you can easily interact with the data and explore these questions yourself! Click [this link](https://movie-app-kpg7e6zlbgkfo9wwk8w5as.streamlit.app/) to view the app and follow along.
 
 **Code:** The code used to create this streamlit app can be found in my [GitHub repository](https://github.com/laurenscarzella/movie-streamlit) called "movie_app.py".
 
