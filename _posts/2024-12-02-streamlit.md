@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Exploring Movie Trends with a Streamlit App"
+title: "Exploring Movie Data with Streamlit: Interactive Insights at Your Fingertips"
 description: "This blog post showcases a Streamlit app I created to explore movie data. With interactive visualizations and customizable filters, users can analyze trends, discover top movies, and the popularity of genres over time. This app makes data exploration more intuitive and engaging."
 image: "/assets/img/IMG_2060.JPG"
 --- 
