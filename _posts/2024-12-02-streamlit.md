@@ -48,9 +48,12 @@ As you can see, the top five movie genres by average popularity score are Scienc
 **-Customize Filters:** Users can adjust filters like year and genre to tailor thier analysis to specific time frames or interests.
 
 **Unique Interactive Elements Included**
+
 **1. Input Widgets:** 
 **-Select Box:** Users can select specific genres, allowing them to filter the data to focus on their genre of choice. This widget allows for personalization of the data exploration experience.
+
 **-Slider:** The slider enables users to select a specific year or range of years for filtering movie data. This makes it easier to explore trends over a specified year range.
+
 **-Radio:** This is used to select between 10, 20, 30, 40, or 50 top movies based on thier popularity scores.
 
 **2. Expanders:**
