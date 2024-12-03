@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "Streamlit App"
-description: "Somthing here."
+title: "Exploring Movie Trends with a Streamlit App"
+description: "This blog post showcases a Streamlit app I created to explore movie data. With interactive visualizations and customizable filters, users can analyze trends, discover top movies, and the popularity of genres over time. This app makes data exploration more intuitive and engaging."
 image: "/assets/img/IMG_2060.JPG"
 --- 
 
 ### Introduction
+Analyzing data can be intimidating, especially if you don't have coding experience. With so much information available, how do you uncover meaningful insights? That's where my [Streamlit app]() comes in. It makes exploring movie data easy and intuitive. This app is designed for users of all skill levels who want to uncover patterns and trends without writing a single line of code. Plus, it goes beyond what's covered in this blog post, allowing you to discover insights of your own!
 
 ### Movie Dataset
 The dataset that this streamlit app uses comes from the [TMBD API](https://developer.themoviedb.org/docs/getting-started). I also go over how to gather data using this API in another blog post which can be found [here.](https://laurenscarzella.github.io/my-blog/blog/api/) The cleaned version of this movie dataset can be found in my [GitHub repository](https://github.com/laurenscarzella/my-api) named "cleaned_movies.csv". The final dataset contains information about movies such as:
@@ -97,4 +98,6 @@ Users can adjust filters like year and genre to tailor thier analysis to specifi
 The app uses Plotly to create interactive bar charts, line charts, and tables. These visualizations are clickable which helps the user dive deeper into specific data points or elements of a visualization.
 
 ### Conclusion
+With a little coding experience, we can answer simple research questions effectively. However, tools like Streamlit make data analysis more accessible and engaging for everyone because it does not require any advanced coding skills. This blog post only demonstrated a glimpse of what's possible. There is so much more that we can uncover about the movie industry.
 
+What will you discover as you explore this dataset? Challenge yourself to dive in, analyze, and share your findings!
