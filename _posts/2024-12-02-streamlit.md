@@ -25,7 +25,7 @@ The dataset that this streamlit app uses comes from the [TMBD API](https://devel
 ### Motivating Question
 On average, which genres are most popular?
 
-### Key Insights
+### Results
 **Code:** All of my code for this section is in a file named "EDA.ipynb" which can be found [here.](https://github.com/laurenscarzella/my-api/blob/main/EDA.ipynb)
 
 **1. Summary Statistics:** This gives us a breif overview of the movie dataset.
@@ -39,7 +39,11 @@ On average, which genres are most popular?
 As you can see, the top five movie genres by average popularity score are Science Fiction, Animation, Action, Horror, and Fantasy.  
 
 ### Streamlit App
-**Purpose:** What if you want to interact with this dataset yourself? Well, you can! Creating a streamlit app enables users to interact with data and possibly uncover insights beyond those discussed above.
+What other valuable insights can we learn from this dataset? Some questions that we can investigate are: What are the most popular movie titles for each genre? What is the average popularity of each genre over time? How many movies come from each genre for a specific year? Answering these questions would be a lot eaiser if you could interact with the data yourself. With the streamlit app that I created, you can easily interact with the data and explore these questions yourself! Click [this link]() to view the app and follow along.
+
+**Code:** The code used to create this streamlit app can be found in my [GitHub repository](https://github.com/laurenscarzella/movie-streamlit) called "movie_app.py".
+
+**Purpose:** Creating a streamlit app enables users to interact with data and uncover insights beyond those discussed in my original analysis.
 
 **Usage:** There are three tabs that you can switch between to help users focus on one aspect of the data. These include Top Movies, Trend Analysis, and Movies Released by Genre. The data is also customizable with various filters such as sliders, radios, and select boxes.
 
