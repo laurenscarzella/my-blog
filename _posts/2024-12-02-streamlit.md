@@ -51,9 +51,9 @@ As you can see, the top five movie genres by average popularity score are Scienc
 
 **- Customize Filters:** Users can adjust filters like year and genre to tailor thier analysis to specific time frames or interests.
 
-### Unique Interactive Elements Included:
+### Unique Interactive Elements Include:
 
-### Input Widgets
+### 1. Input Widgets
 
 **Select Box:** Users can select specific genres, allowing them to filter the data to focus on their genre of choice. This widget allows for personalization of the data exploration experience.
 
@@ -61,15 +61,15 @@ As you can see, the top five movie genres by average popularity score are Scienc
 
 **Radio:** This is used to select between 10, 20, 30, 40, or 50 top movies based on thier popularity scores.
 
-### Expanders
+### 2. Expanders
 
 **Data Table Expander:** For users that want to see the data behind the charts, the app includes an expandable section where they can view the filterred datasets. This allows for transparency in the data that is displayed and for deeper inspection.
 
-### Tabs
+### 3. Tabs
 
 **Multiple Tabs:** The app is organized into different sections, allowing the user to switch between viewing top movies, trend analysis, and movie counts by genre. This helps users focus on one aspect of the data at a time and avoid feeling overwhelmed.
 
-### Interactive Charts
+### 4. Interactive Charts
 
 The app uses Plotly to create interactive bar charts, line charts, and tables. These visualizations are clickable which helps the user dive deeper into specific data points or elements of a visualization.
 
