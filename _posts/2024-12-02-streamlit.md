@@ -51,7 +51,7 @@ As you can see, the top five movie genres by average popularity score are Scienc
 
 **- Customize Filters:** Users can adjust filters like year and genre to tailor thier analysis to specific time frames or interests.
 
-### Unique Interactive Elements Included
+### Unique Interactive Elements Included:
 
 ### Input Widgets
 
