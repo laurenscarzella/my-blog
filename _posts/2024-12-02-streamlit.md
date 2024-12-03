@@ -64,7 +64,7 @@ Explore how the popularity scores of movie genres has changed over the years. Th
 </figure>
 
 ### Explore Movie Counts by Genre
-Check out the number of movies released in a given year in each genre. This provides us with some insight as to the focus of the movie industry for each year.
+Check out the number of movies released in a given year for each genre. This provides us with some insight of the focus of the movie industry for each year.
 
 <figure>
 	<img src="{{site.url}}/{{site.baseurl}}/assets/img/genre_table.png" alt=""> 
