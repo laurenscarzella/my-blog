@@ -47,21 +47,21 @@ As you can see, the top five movie genres by average popularity score are Scienc
 
 <figure>
 	<img src="{{site.url}}/{{site.baseurl}}/assets/img/top.png" alt=""> 
-	<figcaption>Figure 1. - This is an example figcaption</figcaption>
+	<figcaption>Figure 1: Bar chart showing the top 10 movies by popularity score, filtered by release year (1902-2000) and genre (Science Fiction).</figcaption>
 </figure>
 
 **Analyze Genre Trends:** Explore how the popularity scores of movie genres has changed over the years. This can help users understand popularity shifts in genres over time.
 
 <figure>
 	<img src="{{site.url}}/{{site.baseurl}}/assets/img/trend.png" alt=""> 
-	<figcaption>Figure 1. - This is an example figcaption</figcaption>
+	<figcaption>Figure 2: Line chart of the average popularity of movies filtered by release year (1902-2027) and genre (Comedy).</figcaption>
 </figure>
 
 **Explore Movie Counts by Genre:** Check the number of movies released in a given year in each genre. This provides us with some insight as to the focus of the movie industry for each year.
 
 <figure>
 	<img src="{{site.url}}/{{site.baseurl}}/assets/img/genre_table.png" alt=""> 
-	<figcaption>Figure 1. - This is an example figcaption</figcaption>
+	<figcaption>Figure 3: Table showing the count of each movie genre for a specified year (2024).</figcaption>
 </figure>
 
 **Customize Filters:** Users can adjust filters like year and genre to tailor thier analysis to specific time frames or interests.
