@@ -43,7 +43,7 @@ What other valuable insights can we learn from this dataset? Some questions that
 
 **Code:** The code used to create this streamlit app can be found in my [GitHub repository](https://github.com/laurenscarzella/movie-streamlit) called "movie_app.py".
 
-**Purpose:** Creating a streamlit app enables users to interact with data and uncover insights beyond those discussed in my original analysis.
+**Purpose:** Creating a streamlit app enables users to interact with data and uncover insights beyond those discussed in this blog post.
 
 **Usage:** There are three tabs that you can switch between to help users focus on one aspect of the data. These include Top Movies, Trend Analysis, and Movies Released by Genre. The data is also customizable with various filters such as sliders, radios, and select boxes.
 
