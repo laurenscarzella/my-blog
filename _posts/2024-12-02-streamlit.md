@@ -43,28 +43,32 @@ As you can see, the top five movie genres by average popularity score are Scienc
 
 **Usage:** There are three tabs that you can switch between to help users focus on one aspect of the data. These include Top Movies, Trend Analysis, and Movies Released by Genre. The data is also customizable with various filters such as sliders, radios, and select boxes.
 
-**View Top Movies:** Filter movies by release year and genre, and view the top 10, 20, 30, 40, or 50 most popular movies based on their popularity score.
+### View Top Movies
+Filter movies by release year and genre, and view the top 10, 20, 30, 40, or 50 most popular movies based on their popularity score.
 
 <figure>
 	<img src="{{site.url}}/{{site.baseurl}}/assets/img/top.png" alt=""> 
 	<figcaption>Figure 1: Bar chart showing the top 10 movies by popularity score, filtered by release year (1902-2000) and genre (Science Fiction).</figcaption>
 </figure>
 
-**Analyze Genre Trends:** Explore how the popularity scores of movie genres has changed over the years. This can help users understand popularity shifts in genres over time.
+### Analyze Genre Trends
+Explore how the popularity scores of movie genres has changed over the years. This can help users understand popularity shifts in genres over time.
 
 <figure>
 	<img src="{{site.url}}/{{site.baseurl}}/assets/img/trend.png" alt=""> 
 	<figcaption>Figure 2: Line chart of the average popularity of movies filtered by release year (1902-2027) and genre (Comedy).</figcaption>
 </figure>
 
-**Explore Movie Counts by Genre:** Check the number of movies released in a given year in each genre. This provides us with some insight as to the focus of the movie industry for each year.
+### Explore Movie Counts by Genre
+Check out the number of movies released in a given year in each genre. This provides us with some insight as to the focus of the movie industry for each year.
 
 <figure>
 	<img src="{{site.url}}/{{site.baseurl}}/assets/img/genre_table.png" alt=""> 
 	<figcaption>Figure 3: Table showing the count of each movie genre for a specified year (2024).</figcaption>
 </figure>
 
-**Customize Filters:** Users can adjust filters like year and genre to tailor thier analysis to specific time frames or interests.
+### Customizable Filters
+Users can adjust filters like year and genre to tailor thier analysis to specific time frames or interests.
 
 ### Unique Interactive Elements Include:
 
