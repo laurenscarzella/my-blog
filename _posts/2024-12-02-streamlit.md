@@ -41,7 +41,7 @@ As you can see, the top five movie genres by average popularity score are Scienc
 ### Streamlit App
 **Purpose:** What if you want to interact with this dataset yourself? Well, you can! Creating a streamlit app enables users to interact with data and possibly uncover insights beyond those discussed in this blog post.
 
-**Usage:** With this app, users can:
+**Usage:**
 
 **- View Top Movies:** Filter movies by release year and genre, and view the top 10, 20, 30, 40, or 50 most popular movies based on their popularity score.
 
